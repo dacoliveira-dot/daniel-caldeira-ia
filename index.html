@@ -508,6 +508,84 @@
       color: var(--text-muted);
     }
 
+    /* MALHA DE AGENTES */
+    .malha-section { padding: 80px; max-width: 1400px; margin: 0 auto; }
+
+    .agents-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 56px;
+    }
+
+    .agent-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .agent-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .agent-card.miraa::before  { background: var(--blue); }
+    .agent-card.jul::before    { background: var(--accent); }
+    .agent-card.pip::before    { background: var(--green); }
+    .agent-card.cria::before   { background: var(--purple); }
+    .agent-card.grok::before   { background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+
+    .agent-emoji { font-size: 28px; margin-bottom: 12px; }
+    .agent-name  { font-size: 17px; font-weight: 900; margin-bottom: 4px; letter-spacing: -0.3px; }
+    .agent-role  { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    .campanhas-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .campanhas-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .campanha-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 28px;
+    }
+
+    .campanha-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .campanha-info { flex: 1; }
+    .campanha-name { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+    .campanha-detail { font-size: 13px; color: var(--text-muted); }
+
+    .campanha-result {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+    }
+
     /* ALLIA */
     .allia-section {
       background: var(--surface);
@@ -1018,6 +1096,81 @@
           <div class="metric-value" style="color: var(--purple);">2020</div>
           <div class="metric-label">ano de fundação</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MALHA DE AGENTES -->
+<section id="malha">
+  <div class="malha-section">
+    <div class="section-label">Multilaser · M2C</div>
+    <h2 class="section-title">Malha de Agentes</h2>
+    <p class="section-sub">Cinco agentes de IA operando em produção no canal M2C — leitura de dados, análise de criativo, projeção de meta e cobrança de time. Não é automação pontual: é uma camada de inteligência sobre a operação.</p>
+
+    <div class="agents-grid">
+      <div class="agent-card miraa">
+        <div class="agent-emoji">📡</div>
+        <div class="agent-name">Miraa</div>
+        <div class="agent-role">Sync diário às 9h30. Puxa recorte consolidado de metas, ATING%, eventos e criativo da operação M2C.</div>
+      </div>
+      <div class="agent-card grok">
+        <div class="agent-emoji">✨</div>
+        <div class="agent-name">ALLia Grok</div>
+        <div class="agent-role">Ponte estratégica. Recebe o recorte da Miraa, analisa desvios, gera plano de cobrança P0→P2 com dono e done-signal.</div>
+      </div>
+      <div class="agent-card jul">
+        <div class="agent-emoji">📊</div>
+        <div class="agent-name">Jul.IA</div>
+        <div class="agent-role">Agente de dados. Extrai e cruza métricas por BU, CPL por campanha, pace e gap de meta em tempo real.</div>
+      </div>
+      <div class="agent-card pip">
+        <div class="agent-emoji">📦</div>
+        <div class="agent-name">Pip.IA</div>
+        <div class="agent-role">Agente de produto e pricing. Monitora ruptura de estoque, janela de lançamento e benchmarks de precificação por canal.</div>
+      </div>
+      <div class="agent-card cria">
+        <div class="agent-emoji">🎨</div>
+        <div class="agent-name">Cr.IA</div>
+        <div class="agent-role">Agente de criativo. Audita performance por ad, emite vereditos (manter / testar teto / matar) e prioriza brief de produção.</div>
+      </div>
+    </div>
+
+    <div class="campanhas-title">Campanhas Meteórico · Resultados reais</div>
+    <div class="campanhas-list">
+      <div class="campanha-item">
+        <div class="campanha-dot" style="background:var(--blue);"></div>
+        <div class="campanha-info">
+          <div class="campanha-name">DJI Avata 360 — Set/2026</div>
+          <div class="campanha-detail">Comunidade WhatsApp · Meta antecipação · Repescagem 11/09 fechou o gap</div>
+        </div>
+        <div class="campanha-result" style="color:var(--green);">R$ 3,5M · 100,35%</div>
+      </div>
+      <div class="campanha-item">
+        <div class="campanha-dot" style="background:var(--blue);"></div>
+        <div class="campanha-info">
+          <div class="campanha-name">Sennheiser HD 480 Pro</div>
+          <div class="campanha-detail">Comunidade WhatsApp · Audiófilo nicho · CPL abaixo de benchmark</div>
+        </div>
+        <div class="campanha-result" style="color:var(--accent);">CPL R$ 5,78</div>
+      </div>
+      <div class="campanha-item">
+        <div class="campanha-dot" style="background:var(--blue);"></div>
+        <div class="campanha-info">
+          <div class="campanha-name">Commerce Agents BF 2026 — Deck executivo</div>
+          <div class="campanha-detail">Apresentação de estratégia de agentes de IA para Black Friday ao Board Multilaser</div>
+        </div>
+        <div class="campanha-result" style="color:var(--purple);">Board</div>
+      </div>
+      <div class="campanha-item">
+        <div class="campanha-dot" style="background:var(--blue);"></div>
+        <div class="campanha-info">
+          <div class="campanha-name">DJI Lito X1 — Dez/2026</div>
+          <div class="campanha-detail">Pipeline ativo · Abertura 08/dez · Parceria executiva com Stephanie (DJI Global E-commerce Lead)</div>
+        </div>
+        <div class="campanha-result" style="color:var(--blue);">R$ 5M+</div>
       </div>
     </div>
   </div>
