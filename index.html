@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Daniel Caldeira · IA em Operação</title>
+  <meta name="description" content="Diretor de Vendas Online e builder de IA. Três ventures em operação com IA como time, método Meteórico e R$ 3,5M+ em campanhas validadas.">
+  <meta property="og:title" content="Do funil ao faturamento · Daniel Caldeira">
+  <meta property="og:description" content="Diretor de Vendas Online com método e IA em produção.">
+  <meta property="og:image" content="https://og-daniel-ai.vercel.app/og.jpg">
+  <meta name="theme-color" content="#0a0a0a">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #111111;
+      --surface2: #161616;
+      --border: rgba(255,255,255,0.07);
+      --text: #f0f0f0;
+      --text-muted: rgba(240,240,240,0.45);
+      --accent: #FF6B35;
+      --accent2: #FF9A5C;
+      --blue: #4A7BF7;
+      --green: #2DCA72;
+      --purple: #9B59B6;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(10,10,10,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+    }
+
+    .logo-text {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .logo-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .badge-ai {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+      padding: 120px 80px 80px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 6vw, 88px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .hero-desc strong {
+      color: var(--text);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent2);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-ghost:hover {
+      background: var(--surface2);
+    }
+
+    .hero-status {
+      margin-top: 48px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .dot-green {
+      width: 8px; height: 8px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ACTIVITY LOG */
+    .activity-log {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .log-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .log-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .log-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .log-item {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: grid;
+      grid-template-columns: 50px 1fr;
+      gap: 12px;
+      align-items: start;
+    }
+
+    .log-item:last-child { border-bottom: none; }
+
+    .log-date {
+      font-size: 11px;
+      color: var(--text-muted);
+      padding-top: 2px;
+    }
+
+    .log-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .tag-multi { background: rgba(74,123,247,0.2); color: var(--blue); }
+    .tag-galo { background: rgba(255,107,53,0.2); color: var(--accent); }
+    .tag-chb { background: rgba(45,202,114,0.2); color: var(--green); }
+    .tag-allia { background: rgba(155,89,182,0.2); color: var(--purple); }
+
+    .log-text {
+      font-size: 13px;
+      color: rgba(240,240,240,0.8);
+      line-height: 1.4;
+    }
+
+    .log-footer {
+      padding: 12px 20px;
+      background: var(--surface2);
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* NUMBERS */
+    .numbers {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .numbers-grid {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 60px 80px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 40px;
+    }
+
+    .num-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .num-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -20px;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .num-value {
+      font-size: 40px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      background: linear-gradient(135deg, var(--text), rgba(240,240,240,0.7));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .num-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* SECTIONS */
+    section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 100px 80px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .section-sub {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 580px;
+      line-height: 1.7;
+      margin-bottom: 60px;
+    }
+
+    /* METHOD */
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .method-card {
+      background: var(--surface);
+      padding: 36px;
+    }
+
+    .method-num {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: -3px;
+      color: rgba(255,255,255,0.06);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .method-name {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .method-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .method-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .method-stat {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .method-stat strong {
+      color: var(--accent2);
+      font-weight: 700;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+    }
+
+    .project-card.multi::before { background: var(--blue); }
+    .project-card.galo::before { background: var(--accent); }
+    .project-card.chb::before { background: var(--green); }
+    .project-card.daco::before { background: var(--purple); }
+
+    .project-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .project-card.multi .project-tag { background: rgba(74,123,247,0.15); color: var(--blue); }
+    .project-card.galo .project-tag { background: rgba(255,107,53,0.15); color: var(--accent); }
+    .project-card.chb .project-tag { background: rgba(45,202,114,0.15); color: var(--green); }
+    .project-card.daco .project-tag { background: rgba(155,89,182,0.15); color: var(--purple); }
+
+    .project-name {
+      font-size: 26px;
+      font-weight: 800;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    .project-role {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .project-desc {
+      font-size: 15px;
+      color: rgba(240,240,240,0.7);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .project-metrics {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .metric {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .metric-value {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .metric-label {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    /* ALLIA */
+    .allia-section {
+      background: var(--surface);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .allia-hero {
+      padding: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .allia-icon {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--purple), #6C3483);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+
+    .allia-features {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .allia-feature {
+      display: flex;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .feature-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      background: var(--surface2);
+    }
+
+    .feature-text h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .feature-text p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .allia-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border-top: 1px solid var(--border);
+    }
+
+    .allia-stat {
+      background: var(--surface);
+      padding: 32px;
+    }
+
+    .allia-stat-value {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 4px;
+    }
+
+    .allia-stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* TOOLS */
+    .tools-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tool-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(240,240,240,0.8);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tool-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-left: 2px solid var(--border);
+      margin-left: 16px;
+    }
+
+    .timeline-item {
+      padding: 0 0 40px 32px;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -7px; top: 4px;
+      width: 12px; height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+
+    .timeline-date {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .timeline-title {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .timeline-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* GAPS */
+    .gaps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .gap-card {
+      background: var(--surface);
+      padding: 32px;
+    }
+
+    .gap-label {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .gap-before {
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(255,59,48,0.08);
+      border: 1px solid rgba(255,59,48,0.15);
+      font-size: 13px;
+      color: rgba(240,240,240,0.6);
+      margin-bottom: 8px;
+    }
+
+    .gap-after {
+      padding: 12px;
+      border-radius: 8px;
+      background: rgba(45,202,114,0.08);
+      border: 1px solid rgba(45,202,114,0.15);
+      font-size: 13px;
+      color: rgba(240,240,240,0.8);
+      margin-bottom: 16px;
+    }
+
+    .gap-cause {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      text-align: center;
+      padding: 120px 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .contact-section h2 {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+
+    .contact-section p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 40px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    footer p {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* DIVIDER */
+    .divider {
+      height: 1px;
+      background: var(--border);
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 40px; }
+      .numbers-grid { grid-template-columns: repeat(3, 1fr); padding: 48px 24px; }
+      section { padding: 80px 24px; }
+      .method-grid { grid-template-columns: 1fr; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .allia-hero { grid-template-columns: 1fr; padding: 40px; }
+      .allia-stats { grid-template-columns: repeat(3, 1fr); }
+      .gaps-grid { grid-template-columns: 1fr; }
+      .contact-section { padding: 80px 24px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
+      .num-item::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon">DC</div>
+    <div>
+      <div class="logo-text">Daniel Caldeira <span class="badge-ai">IA</span></div>
+      <div class="logo-sub">Diretor de Vendas Online · Builder</div>
+    </div>
+  </a>
+  <a href="mailto:danielcaldeira@daco.com.br" class="btn btn-ghost" style="font-size:13px; padding:10px 20px;">Conversar</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-label">Do funil ao faturamento</div>
+    <h1>
+      IA no<br>
+      <span class="highlight">centro</span><br>
+      da operação.
+    </h1>
+    <p class="hero-desc">
+      Diretor de Vendas Online com <strong>método próprio de lançamentos</strong> e IA como parceira de operação real — não ferramenta, não experimento. <strong>Três ventures em movimento</strong>, com automação, dados e velocidade de execução.
+    </p>
+    <div class="hero-cta">
+      <a href="#projetos" class="btn btn-primary">Ver os projetos ↓</a>
+      <a href="#metodo" class="btn btn-ghost">O Método Meteórico</a>
+    </div>
+    <div class="hero-status">
+      <div class="dot-green"></div>
+      ALLia operando 24/7 — IA pessoal com contexto completo da operação
+    </div>
+  </div>
+
+  <!-- ACTIVITY LOG -->
+  <div class="activity-log">
+    <div class="log-header">
+      <span class="log-title">Log de resultados</span>
+      <span class="log-meta">métricas reais</span>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Out 9</div>
+      <div>
+        <span class="log-tag tag-multi">M2C</span>
+        <div class="log-text">Meteórico DJI Avata 360: R$ 3.508.679 · 100,35% da meta</div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Out 8</div>
+      <div>
+        <span class="log-tag tag-multi">M2C</span>
+        <div class="log-text">Sennheiser HD 480: CPL R$ 5,78 vs meta R$ 7,23 · 43% acima do volume esperado</div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Set 25</div>
+      <div>
+        <span class="log-tag tag-multi">M2C</span>
+        <div class="log-text">Reunião executiva DJI × Multilaser com Stephanie (Global E-commerce Lead)</div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Set 16</div>
+      <div>
+        <span class="log-tag tag-allia">ALLia</span>
+        <div class="log-text">Sistema de localização histórica ativo · Autonomia proativa em 5+ domínios simultâneos</div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Ago 15</div>
+      <div>
+        <span class="log-tag tag-galo">Galo Rico</span>
+        <div class="log-text">Blog financeiro com IA live · Supabase + automação de publicação</div>
+      </div>
+    </div>
+    <div class="log-item">
+      <div class="log-date">Ago 20</div>
+      <div>
+        <span class="log-tag tag-chb">CHB</span>
+        <div class="log-text">Palestra sobre IA aplicada a negócios (dn.ia · São Paulo)</div>
+      </div>
+    </div>
+    <div class="log-footer">
+      Operações ativas em M2C, Galo Rico e CHB — atualizações via ALLia em tempo real
+    </div>
+  </div>
+</div>
+
+<!-- NUMBERS -->
+<div class="numbers">
+  <div class="numbers-grid">
+    <div class="num-item">
+      <div class="num-value">R$ 3,5M+</div>
+      <div class="num-label">em uma campanha Meteórico</div>
+    </div>
+    <div class="num-item">
+      <div class="num-value">100%</div>
+      <div class="num-label">da meta do Avata 360</div>
+    </div>
+    <div class="num-item">
+      <div class="num-value">5+</div>
+      <div class="num-label">ventures em operação</div>
+    </div>
+    <div class="num-item">
+      <div class="num-value">24/7</div>
+      <div class="num-label">ALLia ativa com contexto</div>
+    </div>
+    <div class="num-item">
+      <div class="num-value">29</div>
+      <div class="num-label">países Multilaser</div>
+    </div>
+    <div class="num-item">
+      <div class="num-value">3 anos</div>
+      <div class="num-label">construindo com IA</div>
+    </div>
+  </div>
+</div>
+
+<!-- MÉTODO -->
+<section id="metodo">
+  <div class="section-label">Framework proprietário</div>
+  <h2 class="section-title">O Método Meteórico</h2>
+  <p class="section-sub">O mesmo framework replicável nos três produtos — antecipação que constrói audiência qualificada, escassez real que aciona a decisão, e comprometimento que sustenta a retenção.</p>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <div class="method-num">01</div>
+      <div class="method-name">Antecipação</div>
+      <h3 class="method-title">Audiência qualificada antes do lançamento</h3>
+      <p class="method-desc">Construção de base de leads com CPL controlado e MQL bem definido. A campanha de awareness converte interesse genuíno — não impulsionado por desconto. A base que chega ao lançamento já decidiu.</p>
+      <div class="method-stat">Avata 360: <strong>CPL 20% abaixo da meta</strong> na fase de antecipação</div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">02</div>
+      <div class="method-name">Escassez Real</div>
+      <h3 class="method-title">Limite que não é ficção</h3>
+      <p class="method-desc">Estoque controlado, janelas de tempo reais, oferta que fecha de verdade. A escassez percebida é uma função do produto e do canal — não do copy. Quem compra sob pressão real não cancela.</p>
+      <div class="method-stat">Taxa de conversão de comunidade: <strong>até 40% acima da média</strong></div>
+    </div>
+    <div class="method-card">
+      <div class="method-num">03</div>
+      <div class="method-name">Comprometimento</div>
+      <h3 class="method-title">Coerência que sustenta retenção</h3>
+      <p class="method-desc">A jornada pós-venda é parte do método. Onboarding ativo, entrega de valor tangível no primeiro uso, e ciclo de reengajamento que retroalimenta a próxima fase de antecipação.</p>
+      <div class="method-stat">Evasão de grupo: <strong>5,2% vs meta 22,2%</strong> (retentividade alta)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="section-label">Onde atuo</div>
+  <h2 class="section-title">Três frentes, um método</h2>
+  <p class="section-sub">M2C como laboratório de velocidade e escala. Galo Rico como experimento em fintech. CHB como operação de influencer que funciona com dados.</p>
+
+  <div class="projects-grid">
+    <div class="project-card multi">
+      <div class="project-tag">Multilaser M2C</div>
+      <div class="project-name">Vendas Online</div>
+      <div class="project-role">Diretor de Vendas Online · Canal M2C</div>
+      <p class="project-desc">Gestão do canal de e-commerce e lançamentos digitais de produto do Grupo Multilaser. Campanhas Meteórico coordenadas com agências, time de marketing e parceiros de mídia. 29 países de alcance.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-value" style="color: var(--blue);">R$ 3,5M+</div>
+          <div class="metric-label">em uma campanha</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--blue);">100,35%</div>
+          <div class="metric-label">meta DJI Avata 360</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--blue);">VP</div>
+          <div class="metric-label">reporta ao VP Thiago</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card galo">
+      <div class="project-tag">Galo Rico</div>
+      <div class="project-name">Fintech</div>
+      <div class="project-role">Co-fundador · Builder</div>
+      <p class="project-desc">Plataforma de educação financeira com Open Banking e IA. Blog financeiro publicado com curadoria de IA, monitoramento de rendimentos e painel de finanças pessoais em desenvolvimento. Stack: Supabase + Claude.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-value" style="color: var(--accent);">IA</div>
+          <div class="metric-label">curadoria de conteúdo</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--accent);">Open</div>
+          <div class="metric-label">Banking integrado</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--accent);">Blog</div>
+          <div class="metric-label">live com Supabase</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card chb">
+      <div class="project-tag">CHB</div>
+      <div class="project-name">Influencer Marketing</div>
+      <div class="project-role">Sócio · Estratégia</div>
+      <p class="project-desc">Agência de influencer marketing com operações automatizadas por IA. Campanhas cross-platform com métricas reais de CPL e conversão. Automação de outreach, briefing e relatório de campanha.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-value" style="color: var(--green);">Auto</div>
+          <div class="metric-label">outreach via IA</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--green);">CPL</div>
+          <div class="metric-label">rastreado por campanha</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--green);">Multi</div>
+          <div class="metric-label">plataformas ativas</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card daco">
+      <div class="project-tag">DACO</div>
+      <div class="project-name">Consultoria</div>
+      <div class="project-role">Sócio com Carol Vieira</div>
+      <p class="project-desc">Consultoria estratégica de negócios com foco em e-commerce, marketing digital e transformação com IA. Parceria com a BHCT para emissão de NFs e serviços de inteligência de mercado e expansão.</p>
+      <div class="project-metrics">
+        <div class="metric">
+          <div class="metric-value" style="color: var(--purple);">NF</div>
+          <div class="metric-label">fluxo automatizado</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--purple);">IA</div>
+          <div class="metric-label">em todos os processos</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value" style="color: var(--purple);">2020</div>
+          <div class="metric-label">ano de fundação</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ALLIA -->
+<section id="allia" style="padding-bottom: 0;">
+  <div class="section-label">Sistema próprio</div>
+  <h2 class="section-title">ALLia — IA Pessoal</h2>
+  <p class="section-sub">Não é um chatbot. É uma parceira de inteligência operando em 5+ domínios simultaneamente com contexto persistente, autonomia calibrada e memória real da operação.</p>
+</section>
+
+<div style="max-width:1400px; margin:0 auto; padding:0 80px 100px;">
+  <div class="allia-section">
+    <div class="allia-hero">
+      <div>
+        <div class="allia-icon">✨</div>
+        <h3 style="font-size:28px; font-weight:800; letter-spacing:-1px; margin-bottom:16px;">ALLia opera onde nenhum chatbot opera</h3>
+        <p style="font-size:15px; color:var(--text-muted); line-height:1.7; margin-bottom:32px;">Construída no OpenClaw com Claude Sonnet como backbone. Autonomia por nível (N0 a N3), memória persistente, integração com Google Workspace, WhatsApp, Home Assistant, e contexto completo das ventures.</p>
+        <div class="tool-chip" style="display:inline-flex;">
+          <div class="tool-dot" style="background:var(--purple);"></div>
+          OpenClaw + Claude Sonnet 4.6
+        </div>
+      </div>
+      <div class="allia-features">
+        <div class="allia-feature">
+          <div class="feature-icon">📊</div>
+          <div class="feature-text">
+            <h4>Dashboard Multi em tempo real</h4>
+            <p>Lê a malha de vendas M2C, analisa CPL por campanha, detecta desvios e propõe planos de ação — sem pedir contexto.</p>
+          </div>
+        </div>
+        <div class="allia-feature">
+          <div class="feature-icon">📍</div>
+          <div class="feature-text">
+            <h4>Histórico de localização consultável</h4>
+            <p>Sabe onde estive, quando e por quanto tempo — inferindo rotina e padrões de deslocamento sem que eu precise explicar.</p>
+          </div>
+        </div>
+        <div class="allia-feature">
+          <div class="feature-icon">🏠</div>
+          <div class="feature-text">
+            <h4>Casa integrada via Home Assistant</h4>
+            <p>TV, Echo, clima — controlados por conversa. Automações que se ativam por contexto de rotina, não só por comando.</p>
+          </div>
+        </div>
+        <div class="allia-feature">
+          <div class="feature-icon">💰</div>
+          <div class="feature-text">
+            <h4>Financeiro consolidado (DACO + pessoal)</h4>
+            <p>Monitora fatura, rateios, NFs e rendimentos do Open Banking — com alerta proativo antes do prazo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="allia-stats">
+      <div class="allia-stat">
+        <div class="allia-stat-value" style="color:var(--purple);">24/7</div>
+        <div class="allia-stat-label">operando em background</div>
+      </div>
+      <div class="allia-stat">
+        <div class="allia-stat-value" style="color:var(--purple);">5+</div>
+        <div class="allia-stat-label">domínios simultâneos</div>
+      </div>
+      <div class="allia-stat">
+        <div class="allia-stat-value" style="color:var(--purple);">N0→N3</div>
+        <div class="allia-stat-label">autonomia calibrada</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FERRAMENTAS -->
+<section id="ferramentas">
+  <div class="section-label">Stack</div>
+  <h2 class="section-title">O papel de cada ferramenta</h2>
+  <p class="section-sub">Cada peça entrou pelo problema que resolve. Sem ferramenta por tendência — só pelo resultado que entrega.</p>
+
+  <h4 style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:16px; margin-top:40px;">IA e Automação</h4>
+  <div class="tools-grid">
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--purple);"></div>Claude (Sonnet + Haiku)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--purple);"></div>OpenClaw (framework IA pessoal)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--purple);"></div>Claude Code (engenharia)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--purple);"></div>Make.com (automações)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--purple);"></div>Gemini Flash (volume/velocidade)</div>
+  </div>
+
+  <h4 style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:16px; margin-top:32px;">Data e Backend</h4>
+  <div class="tools-grid">
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--blue);"></div>Supabase (DB + Auth + RLS)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--blue);"></div>SQL (analytics operacional)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--blue);"></div>Google Sheets (painel rápido)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--blue);"></div>SQLite local (ALLia DB)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--blue);"></div>Python (scripts de análise)</div>
+  </div>
+
+  <h4 style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:1px; text-transform:uppercase; margin-bottom:16px; margin-top:32px;">Marketing e Canais</h4>
+  <div class="tools-grid">
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--accent);"></div>Meta Ads (captação Meteórico)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--accent);"></div>WhatsApp Business (ALLia)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--accent);"></div>Shopify / Mercado Livre</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--accent);"></div>Google Workspace (dacoliveira@gmail.com)</div>
+    <div class="tool-chip"><div class="tool-dot" style="background:var(--accent);"></div>Anthropic API (Galo Rico + CHB)</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEMAS QUE RESOLVI -->
+<section>
+  <div class="section-label">Achar a causa raiz vale mais que o remendo</div>
+  <h2 class="section-title">Gaps que fechei</h2>
+  <p class="section-sub">Seis problemas reais de operação, com o antes, o depois e a causa.</p>
+
+  <div class="gaps-grid">
+    <div class="gap-card">
+      <div class="gap-label">M2C · Campanhas</div>
+      <div class="gap-before">Antes: CPL acima da meta sem diagnóstico claro de causa</div>
+      <div class="gap-after">Depois: filtro MQL na LP identificado e CPL aceito como tradeoff consciente de qualidade</div>
+      <div class="gap-cause">Causa: mudança de pergunta de qualificação aumentou CPL mas melhorou lead score</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-label">M2C · Estoque</div>
+      <div class="gap-before">Antes: ruptura de estoque DJI Mini 5 Pro com perda estimada R$ 300–350k</div>
+      <div class="gap-after">Depois: monitoramento de pipeline com alertas preditivos por produto/campanha</div>
+      <div class="gap-cause">Causa: desalinhamento entre previsão de demanda e lead time de reposição</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-label">ALLia · Localização</div>
+      <div class="gap-before">Antes: IA assumia endereço por DDD do celular (DDD 31 → inferiu BH)</div>
+      <div class="gap-after">Depois: histórico de localização consultável via locais.py — nunca infere por DDD</div>
+      <div class="gap-cause">Causa: ausência de fonte de verdade verificável para localização atual</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-label">Galo Rico · Blog</div>
+      <div class="gap-before">Antes: conteúdo financeiro manual, sem consistência de publicação</div>
+      <div class="gap-after">Depois: blog DB-driven com Supabase, IA de curadoria e deploy automatizado</div>
+      <div class="gap-cause">Causa: ausência de processo editorial estruturado e pipeline de publicação</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-label">ALLia · Mensagens</div>
+      <div class="gap-before">Antes: prompt de instrução vazou diretamente para o WhatsApp do Daniel</div>
+      <div class="gap-after">Depois: regra rígida — campo message recebe texto FINAL, nunca instrução de geração</div>
+      <div class="gap-cause">Causa: confusão entre instrução de formatação e conteúdo da mensagem a ser enviada</div>
+    </div>
+    <div class="gap-card">
+      <div class="gap-label">DACO · NFs</div>
+      <div class="gap-before">Antes: verificação manual de e-mail antes de cada emissão de NF</div>
+      <div class="gap-after">Depois: ALLia verifica Gmail automaticamente — evita perguntas sobre status já respondido</div>
+      <div class="gap-cause">Causa: ausência de integração entre inbox e workflow de emissão de nota</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTATO -->
+<div class="contact-section">
+  <div class="section-label" style="text-align:center;">Vamos conversar</div>
+  <h2>IA em operação,<br>não em apresentação.</h2>
+  <p>Se você quer entender como aplicar IA em vendas, lançamentos e operação de verdade — não em piloto, não em slide — é aqui.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="mailto:danielcaldeira@daco.com.br" class="btn btn-primary">Mandar e-mail</a>
+    <a href="https://www.linkedin.com/in/danielcaldeiraoliveira" target="_blank" class="btn btn-ghost">LinkedIn</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<footer>
+  <p>© 2026 Daniel Caldeira · <a href="https://dacoliveira.com" style="color:var(--text-muted); text-decoration:none;">dacoliveira.com</a></p>
+  <p style="text-align:right;">Números verificados em 10/10/2026 · Construído com Claude Code e ALLia ✨</p>
+</footer>
+
+</body>
+</html>
