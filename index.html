@@ -586,6 +586,118 @@
       flex-shrink: 0;
     }
 
+    /* COMMERCE AGENTS */
+    .commerce-section { padding: 80px; max-width: 1400px; margin: 0 auto; }
+
+    .commerce-arch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .arch-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .arch-badge {
+      display: inline-block;
+      background: rgba(245,158,11,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 16px;
+    }
+
+    .arch-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .arch-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+
+    .arch-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .arch-pill {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px;
+      padding: 4px 12px;
+      color: var(--text-muted);
+    }
+
+    .commerce-scale {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 40px 0;
+    }
+
+    .scale-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .scale-num {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--accent);
+      letter-spacing: -1px;
+    }
+
+    .scale-label { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 40px;
+    }
+
+    .roadmap-phase {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 16px;
+    }
+
+    .phase-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 900;
+      color: var(--accent);
+      opacity: 0.5;
+      letter-spacing: -1px;
+    }
+
+    .phase-title { font-size: 13px; font-weight: 700; margin: 8px 0 6px; }
+    .phase-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+    @media (max-width: 900px) {
+      .commerce-arch { grid-template-columns: 1fr; }
+      .commerce-scale { grid-template-columns: repeat(2, 1fr); }
+      .roadmap-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
     /* ALLIA */
     .allia-section {
       background: var(--surface);
@@ -1171,6 +1283,93 @@
           <div class="campanha-detail">Pipeline ativo · Abertura 08/dez · Parceria executiva com Stephanie (DJI Global E-commerce Lead)</div>
         </div>
         <div class="campanha-result" style="color:var(--blue);">R$ 5M+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMMERCE AGENTS -->
+<section id="commerce">
+  <div class="commerce-section">
+    <div class="section-label">Multilaser · Blueprint</div>
+    <h2 class="section-title">Commerce Agents</h2>
+    <p class="section-sub">Arquitetura de agentes de IA para operar 10 sites próprios, 37 marketplaces e 87 lojas em multi-tenant — um agente por tipo de trabalho, não um agente por loja.</p>
+
+    <div class="commerce-scale">
+      <div class="scale-card">
+        <div class="scale-num">10</div>
+        <div class="scale-label">Sites VTEX próprios</div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-num">37</div>
+        <div class="scale-label">Marketplaces (MercadoLivre, Amazon, Shopee…)</div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-num">87</div>
+        <div class="scale-label">Lojas operadas como tenants</div>
+      </div>
+      <div class="scale-card">
+        <div class="scale-num">2</div>
+        <div class="scale-label">Tipos de agente (shopping + merchant)</div>
+      </div>
+    </div>
+
+    <div class="commerce-arch">
+      <div class="arch-card">
+        <div class="arch-badge">Shopping Agent</div>
+        <div class="arch-title">Vende ao consumidor</div>
+        <div class="arch-desc">Roda nos 10 sites VTEX com identidade de marca injetada por tenant. DJI fala com linguagem técnica de drone; Chicco fala com pais; Cuisinart com quem cozinha. Mesmo agente, contexto diferente por sessão. Também opera no WhatsApp/Instagram via Suri.</div>
+        <div class="arch-pills">
+          <span class="arch-pill">search_products</span>
+          <span class="arch-pill">get_availability</span>
+          <span class="arch-pill">add_to_cart</span>
+          <span class="arch-pill">handoff_to_checkout</span>
+          <span class="arch-pill">purchase-research</span>
+          <span class="arch-pill">memory-personalization</span>
+        </div>
+      </div>
+      <div class="arch-card">
+        <div class="arch-badge">Merchant Agent</div>
+        <div class="arch-title">Opera a loja</div>
+        <div class="arch-desc">É a malha M2C já em produção — jik_sobi, sam-ji, SAM, ops. Atua nas 87 lojas como tenants do mesmo agente. Cada skill tem dono de aprovação definido (Choi, Mariane, Cristiano, Ingrid) e nível de autonomia explícito — nunca escreve sem trilha de auditoria.</div>
+        <div class="arch-pills">
+          <span class="arch-pill">performance-insights</span>
+          <span class="arch-pill">pricing-promotions</span>
+          <span class="arch-pill">inventory-operations</span>
+          <span class="arch-pill">catalog-listings</span>
+          <span class="arch-pill">marketing-campaigns</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="campanhas-title">Roadmap · 5 fases</div>
+    <div class="roadmap-grid">
+      <div class="roadmap-phase">
+        <div class="phase-num">0</div>
+        <div class="phase-title">Decisões estruturais</div>
+        <div class="phase-desc">1 agente × N lojas. Onde o shopping agent pode e não pode estar. GoBots e Suri: copiloto ou motor?</div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">1</div>
+        <div class="phase-title">Merchant agent + trilha de auditoria</div>
+        <div class="phase-desc">Skills mapeadas, inventário de trabalhos por área. ETL do Bruno + VTEX tempo real como pré-requisito.</div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">2</div>
+        <div class="phase-title">Shopping piloto + copiloto Inside Sales</div>
+        <div class="phase-desc">1 site de ticket alto (DJI ou Sennheiser). 50–100 evals com o SME da marca antes de ir ao ar.</div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">3</div>
+        <div class="phase-title">Multi-tenant + GoBots/Suri</div>
+        <div class="phase-desc">Rollout nos 10 sites. Loop pergunta→anúncio via GoBots. Cache ≥ 90% como gate de escala.</div>
+      </div>
+      <div class="roadmap-phase">
+        <div class="phase-num">4</div>
+        <div class="phase-title">Motor próprio + GEO/AEO</div>
+        <div class="phase-desc">Bring Your Own LLM onde o fornecedor permitir. SEO/AEO/GEO em escala. Agentic checkout readiness.</div>
       </div>
     </div>
   </div>
